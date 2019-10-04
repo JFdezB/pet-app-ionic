@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="clickedReload()">
+        <ion-icon name="refresh"></ion-icon>
+      </ion-button>
+      <ion-button (click)="clickSettings()">
+        <ion-icon name="settings"></ion-icon>
+        <ion-item style="display: none">
+          <ion-label>Status</ion-label>
+          <ion-select interface="popover" (ngModelChange)="clickedReload()" [(ngModel)]="choices" #mySelect>
+            <ion-select-option value="available">Available</ion-select-option>
+            <ion-select-option value="sold">Sold</ion-select-option>
+            <ion-select-option value="pending">Pending</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Pet App</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="!pets">
+    <ion-list-header>
+      <ion-skeleton-text animated style="width: 80px"></ion-skeleton-text>
+    </ion-list-header>
+    <ion-item *ngFor="let a of '0123456789'.split('') ">
+      <ion-avatar slot="start">
+        <ion-skeleton-text></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h2>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </h2>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="pets">
+    <ion-list-header>
+      Pets {{choices}}
+    </ion-list-header>
+    <ion-item *ngFor="let pet of pets;" [routerLink]="['/detail', pet.id]">
+      <ion-avatar slot="start">
+        <img src="{{pet.photoUrls[0]}}" onError="this.src='./assets/unknown_dog.png';">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{pet.name}}</h2>
+        <p>Status: {{pet.status}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/add']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

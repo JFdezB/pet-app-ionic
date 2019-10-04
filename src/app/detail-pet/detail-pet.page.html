@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="alertDeletePet()">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Detail pet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-avatar class="item-avatar">
+      <img src="{{pet.photoUrls[0]}}" onError="this.src='./assets/unknown_dog.png';">
+    </ion-avatar>
+    <!-- <ion-thumbnail slot="start">
+      <ion-img class="img-pet" [src]="pet.img"></ion-img>
+    </ion-thumbnail> -->
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Pet Name <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-text> {{pet.name}} </ion-text>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Pet tags</ion-label>
+    <ion-text> {{pet.tags}} </ion-text>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Status: </ion-label>
+    <ion-button *ngIf="pet.status == 'available'" style="margin: 10px auto" size="small" color="{{pet.status == 'available' ? 'success': 'light'}}">
+      Available</ion-button>
+    <ion-button *ngIf="pet.status == 'pending'" style="margin: 10px auto" size="small" color="{{pet.status == 'pending' ? 'warning': 'light'}}">Pending
+    </ion-button>
+    <ion-button *ngIf="pet.status == 'sold'" style="margin: 10px auto" size="small" color="{{pet.status == 'sold' ? 'danger': 'light'}}">Sold
+    </ion-button>
+  </ion-item>
+
+  <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addPet()">
+      <ion-icon name="save"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+</ion-content>

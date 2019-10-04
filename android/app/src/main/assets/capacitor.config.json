@@ -1,0 +1,7 @@
+{
+  "appId": "com.jesuseitor.petapp",
+  "appName": "PetApp",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}
