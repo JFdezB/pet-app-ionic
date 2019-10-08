@@ -2,6 +2,18 @@
 
 Pet App is an example of a Hybrid IONIC-Angular application
 
+<div style="width:100%">
+<img src="images/pet_list.png?raw=true"
+     alt="Markdown Monster icon"
+     style="width:20%; margin: 0 auto;" />
+     <img src="images/pet_list_status.png?raw=true"
+     alt="Markdown Monster icon"
+     style="width:20%; margin: 0 auto;" />
+     <img src="images/add_pet.png?raw=true"
+     alt="Markdown Monster icon"
+     style="width:20%; margin: 0 auto;"/>
+</div>
+
 ## Installation
 
 ### Run the app
